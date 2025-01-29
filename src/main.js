@@ -59,7 +59,6 @@ const onFormSubmit = event => {
 
         return;
       }
-      console.log(hits);
 
       galleryEl.innerHTML = createGalleryCardTemplate(hits);
 
