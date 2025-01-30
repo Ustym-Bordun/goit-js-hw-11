@@ -22,8 +22,6 @@ const onFormSubmit = event => {
 
   event.target.reset();
 
-  loaderEl.classList.remove('hidden');
-
   if (!searchedQuery) {
     iziToast.error({
       message: `Search query can't be empty`,
@@ -39,8 +37,10 @@ const onFormSubmit = event => {
 
     return;
   }
+  
   galleryEl.innerHTML = '';
-
+  loaderEl.classList.remove('hidden');
+  
   fetchPhotos(searchedQuery)
     .then(({ hits }) => {
       if (hits.length === 0) {
